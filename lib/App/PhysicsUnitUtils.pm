@@ -49,7 +49,7 @@ sub convert_unit {
         my @units;
         # XXX make it more efficient
         for my $u (Physics::Unit::ListUnits()) {
-            push @units, $u if $quantity->type eq Physics::Unit::GetUnit($u)->type;
+            push @units, $u if $quantity->type eq (Physics::Unit::GetUnit($u)->type // '');
         }
 
         my @rows;
